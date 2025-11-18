@@ -1,0 +1,100 @@
+/* ===== RESET / BASE ===== */
+body {
+  margin: 0;
+  padding: 50px 0;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: #f4f7f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== CONTAINER ===== */
+.todo-container {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  color: #c0c0c0;
+  box-shadow: 0 6px 20px rgba(57, 8, 173, 0.1);
+}
+
+
+h1 {
+  margin-bottom: 25px;
+
+  text-align: center;
+  font-size: 2em;
+
+  color: #1e3e1e;
+}
+
+
+.adicionar-tarefa {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+.adicionar-tarefa input {
+  flex: 1;
+  padding: 12px;
+  font-size: 1em;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.adicionar-tarefa:hover input {
+  color: #09110e  ;
+}
+
+.adicionar-tarefa button {
+  padding: 12px 20px;
+  background: #10b981;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.adicionar-tarefa button:hover {
+  background: #059669;
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+ul li {
+  padding: 12px 0;
+
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+ul li:hover {
+  background: #f9f9f9;
+}
+
+/* ===== BOTÃO DA LISTA ===== */
+ul li button {
+  transition: background 0.3s, color 0.3s;
+}
+
+ul li button:hover {
+  background: #c53030 !important;
+  color: white;
+}
