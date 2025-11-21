@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useLocalStorage from './hooks/useLocalStorage';
 import ItemTarefa from './ItemTarefa';
 import FormularioAdicionar from './FormularioAdicionar';
 import './App.css';
@@ -7,17 +8,11 @@ function ToDoList() {
 
   const [novoTexto, setNovoTexto] = useState('');
 
-  const [tarefas, setTarefas] = useState(() => {
-    const savedTasks = localStorage.getItem('todoList');
-    if (savedTasks) {
-      return JSON.parse(savedTasks);
-    }
-
-    return [
-      { id: 1, texto: "Configurar o novo projeto React", concluida: false },
-      { id: 2, texto: "Aprender sobre o .map()", concluida: true },
-    ];
-  });
+ 
+  const [tarefas, setTarefas] = useLocalStorage('todoList', [
+    { id: 1, texto: "Configurar o novo projeto React", concluida: false },
+    { id: 2, texto: "Aprender sobre o .map()", concluida: true },
+  ]);
 
   //Salvar
   useEffect(() => {
@@ -67,7 +62,7 @@ function ToDoList() {
     <div className='todo-container'>
       <h1>Lista de Tarefas 📝</h1>
 
-     
+
 
       <FormularioAdicionar
         novoTexto={novoTexto}
@@ -87,20 +82,20 @@ function ToDoList() {
             onRemover={removerTarefa}
           />
         ))}
-         <button 
-        onClick={limparPersistencia}
-        style={{
-          backgroundColor: '#ffc107',
-          color: '#333',
-          border: 'none',
-          padding: '8px 15px',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          marginBottom: '20px'
-        }}
-      >
-        Resetar Dados Salvos
-      </button>
+        <button
+          onClick={limparPersistencia}
+          style={{
+            backgroundColor: '#ffc107',
+            color: '#333',
+            border: 'none',
+            padding: '8px 15px',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            marginBottom: '20px'
+          }}
+        >
+          Resetar Dados Salvos
+        </button>
       </ul>
     </div>
   );
